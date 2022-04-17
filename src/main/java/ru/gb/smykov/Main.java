@@ -11,6 +11,12 @@ public class Main {
         System.out.println(integerIsNegative(-8));
 
         printNTimes("Hello world!!!", 5);
+
+        for (int i = 0; i < 2023; i++) {
+            if (isIntercalaryYear(i)){
+                System.out.println(i + " is Intercalary Year");
+            }
+        }
     }
 
     public static boolean checkSumNumbers(int a, int b) {
@@ -40,5 +46,9 @@ public class Main {
         for (int i = 0; i < n; i++) {
             System.out.println(string);
         }
+    }
+
+    public static boolean isIntercalaryYear(int year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
 }
