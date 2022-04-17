@@ -9,6 +9,8 @@ public class Main {
         CheckToPositive(-5);
 
         System.out.println(IntegerIsNegative(-8));
+
+        PrintNTimes("Hello world!!!", 5);
     }
 
     public static boolean CheckSumNumbers(int a, int b) {
@@ -32,5 +34,11 @@ public class Main {
 
     public static boolean IntegerIsNegative(int a) {
         return a < 0;
+    }
+
+    public static void PrintNTimes(String string, int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println(string);
+        }
     }
 }
