@@ -11,10 +11,6 @@ public class Main {
         int min = 10, max = 20;
         int sum = a + b;
 
-        if (sum >= min && sum <= max) {
-            return true;
-        } else {
-            return false;
-        }
+        return sum >= min && sum <= max;
     }
 }
