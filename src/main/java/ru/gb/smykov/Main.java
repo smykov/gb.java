@@ -4,23 +4,23 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
-        System.out.println(CheckSumNumbers(5, 8));
+        System.out.println(checkSumNumbers(5, 8));
 
-        CheckToPositive(-5);
+        checkToPositive(-5);
 
-        System.out.println(IntegerIsNegative(-8));
+        System.out.println(integerIsNegative(-8));
 
-        PrintNTimes("Hello world!!!", 5);
+        printNTimes("Hello world!!!", 5);
     }
 
-    public static boolean CheckSumNumbers(int a, int b) {
+    public static boolean checkSumNumbers(int a, int b) {
         int min = 10, max = 20;
         int sum = a + b;
 
         return sum >= min && sum <= max;
     }
 
-    public static void CheckToPositive(int a) {
+    public static void checkToPositive(int a) {
         String result;
 
         if(a >= 0) {
@@ -32,11 +32,11 @@ public class Main {
         System.out.println(a + " is " + result);
     }
 
-    public static boolean IntegerIsNegative(int a) {
+    public static boolean integerIsNegative(int a) {
         return a < 0;
     }
 
-    public static void PrintNTimes(String string, int n) {
+    public static void printNTimes(String string, int n) {
         for (int i = 0; i < n; i++) {
             System.out.println(string);
         }
