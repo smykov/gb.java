@@ -5,6 +5,8 @@ public class Main {
         System.out.println("Hello world!");
 
         System.out.println(CheckSumNumbers(5, 8));
+
+        CheckToPositive(-5);
     }
 
     public static boolean CheckSumNumbers(int a, int b) {
@@ -12,5 +14,17 @@ public class Main {
         int sum = a + b;
 
         return sum >= min && sum <= max;
+    }
+
+    public static void CheckToPositive(int a) {
+        String result;
+
+        if(a >= 0) {
+            result = "positive";
+        } else {
+            result = "negative";
+        }
+
+        System.out.println(a + " is " + result);
     }
 }
