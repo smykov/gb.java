@@ -7,6 +7,8 @@ public class Main {
         System.out.println(CheckSumNumbers(5, 8));
 
         CheckToPositive(-5);
+
+        System.out.println(IntegerIsNegative(-8));
     }
 
     public static boolean CheckSumNumbers(int a, int b) {
@@ -26,5 +28,9 @@ public class Main {
         }
 
         System.out.println(a + " is " + result);
+    }
+
+    public static boolean IntegerIsNegative(int a) {
+        return a < 0;
     }
 }
