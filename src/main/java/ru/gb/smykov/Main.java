@@ -18,6 +18,18 @@ public class Main {
 
         System.out.println("\nFourth task:");
         fillArrayDiagonalsBy1();
+
+        System.out.println("\nFifth task:");
+        int[] array = getFillArray(5, 3);
+        System.out.println(Arrays.toString(array));
+    }
+
+    private static int[] getFillArray(int len, int initialValue) {
+        int[] array = new int[len];
+
+        Arrays.fill(array, initialValue);
+
+        return array;
     }
 
     private static void fillArrayDiagonalsBy1() {
