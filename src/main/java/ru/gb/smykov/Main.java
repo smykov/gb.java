@@ -13,7 +13,20 @@ public class Main {
 
         initArrayAndValuesLess6MultiplyBy2();
 
+        fillArrayDiagonalsBy1();
+    }
 
+    private static void fillArrayDiagonalsBy1() {
+        int[][] array = new int[10][10];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i][i] = 1;
+            array[i][(array.length - 1) - i] = 1;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
     }
 
     private static void initArrayAndValuesLess6MultiplyBy2() {
