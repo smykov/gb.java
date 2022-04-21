@@ -22,6 +22,25 @@ public class Main {
         System.out.println("\nFifth task:");
         int[] array = getFillArray(5, 3);
         System.out.println(Arrays.toString(array));
+
+        System.out.println("\nSixth task:");
+        initArrayAndFindMinMaxValue();
+
+    }
+
+    private static void initArrayAndFindMinMaxValue() {
+        int[] array = new int[10];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = new Random().nextInt(55);
+        }
+
+        System.out.println(Arrays.toString(array));
+
+        int min = Arrays.stream(array).min().getAsInt();
+        int max = Arrays.stream(array).max().getAsInt();
+
+        System.out.printf("Min: %d, Max: %d\n", min, max);
     }
 
     private static int[] getFillArray(int len, int initialValue) {
