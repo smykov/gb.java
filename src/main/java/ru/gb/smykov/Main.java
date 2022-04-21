@@ -8,6 +8,19 @@ public class Main {
         System.out.println("Hello world!");
 
         initArrayAndReversesValues();
+
+        initArraySize100();
+
+    }
+
+    private static void initArraySize100() {
+        int[] array = new int[100];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
+        }
+
+        System.out.println(Arrays.toString(array));
     }
 
     private static void initArrayAndReversesValues() {
