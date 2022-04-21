@@ -7,12 +7,16 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
+        System.out.println("\nFirst task:");
         initArrayAndReversesValues();
 
+        System.out.println("\nSecond task:");
         initArraySize100();
 
+        System.out.println("\nThird task:");
         initArrayAndValuesLess6MultiplyBy2();
 
+        System.out.println("\nFourth task:");
         fillArrayDiagonalsBy1();
     }
 
