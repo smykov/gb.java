@@ -26,6 +26,37 @@ public class Main {
         System.out.println("\nSixth task:");
         initArrayAndFindMinMaxValue();
 
+        System.out.println("\nSeventh task:");
+
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = new Random().nextInt(10);
+        }
+
+        System.out.println(Arrays.toString(arr));
+
+        System.out.println(checkBalance(arr));
+
+
+    }
+
+    private static boolean checkBalance(int[] arr) {
+        int indexLeftEdge = 0, indexRightEdge = arr.length - 1;
+        int sumArrLeftEdge = arr[0], sumArrRightEdge = arr[arr.length - 1];
+
+        while (indexLeftEdge + 1 != indexRightEdge || indexLeftEdge != indexRightEdge - 1) {
+
+            if (sumArrLeftEdge < sumArrRightEdge || (sumArrLeftEdge == sumArrRightEdge && arr[indexLeftEdge + 1] < arr[indexRightEdge - 1])) {
+                indexLeftEdge++;
+                sumArrLeftEdge += arr[indexLeftEdge];
+            } else if (sumArrLeftEdge > sumArrRightEdge || (sumArrLeftEdge == sumArrRightEdge && arr[indexLeftEdge + 1] > arr[indexRightEdge - 1])){
+                indexRightEdge--;
+                sumArrRightEdge += arr[indexRightEdge];
+            }
+        }
+        System.out.printf("Left edge is [%d] = %d, right edge is [%d] = %d\n", indexLeftEdge, sumArrLeftEdge, indexRightEdge, sumArrRightEdge);
+
+        return (sumArrLeftEdge == sumArrRightEdge);
     }
 
     private static void initArrayAndFindMinMaxValue() {
