@@ -38,6 +38,46 @@ public class Main {
         System.out.println(checkBalance(arr));
 
 
+        System.out.println("\nSeventh task:");
+        //Init random N
+        int n = 0;
+        while (n == 0) {
+            n = new Random().nextInt(3);
+        }
+        if ((new Random().nextInt(2)) == 1) {
+            n *= -1;
+        }
+        System.out.println("n = " + n);
+        //Init random array
+        int[] a = new int[5];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = new Random().nextInt(10);
+        }
+        System.out.println(Arrays.toString(a));
+
+        a = moveArray(a, n);
+        System.out.println(Arrays.toString(a));
+
+    }
+
+    private static int[] moveArray(int[] a, int n) {
+        for (int i = 0; i < Math.abs(n); i++) {
+            if (n > 0) {
+                int lastValue = a[a.length - 1];
+                for (int j = a.length - 1; j > 0; j--) {
+                    a[j] = a[j - 1];
+                }
+                a[0] = lastValue;
+            } else {
+                int firstValue = a[0];
+                for (int j = 0; j < a.length - 1; j++) {
+                    a[j] = a[j + 1];
+                }
+                a[a.length - 1] = firstValue;
+            }
+        }
+
+        return a;
     }
 
     private static boolean checkBalance(int[] arr) {
