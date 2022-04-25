@@ -1,5 +1,6 @@
 package ru.gb.smykov.hm4;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,8 +23,15 @@ public class MineSweeper {
     public static final String ANSI_CYAN    = "\u001B[36m";
     public static final String ANSI_WHITE   = "\u001B[37m";
 
+    private static int[][] moves;
+    private static int[][] board;
+
     public static void main(String[] args) {
         boolean userWin = play();
+
+        clearMoves();
+        printBoard(board, moves);
+
         if (userWin) {
             System.out.println(ANSI_GREEN + "Поздравляем! Вы выйграли!!!");
         } else {
@@ -32,16 +40,22 @@ public class MineSweeper {
         System.out.print(ANSI_RESET);
     }
 
+    private static void clearMoves() {
+        for (int i = 0; i < HEIGHT; i++) {
+            Arrays.fill(moves[i], 1);
+        }
+    }
+
     public static boolean play() {
         boolean win;
         boolean isPassMove;
-        int[][] board = generateBoard();
-        int[][] moves = new int[HEIGHT][WIDTH];
+        board = generateBoard();
+        moves = new int[HEIGHT][WIDTH];
         do {
             isPassMove =  move(board, moves);
             win = isWin(moves);
         } while (isPassMove && !win);
-        return isPassMove;
+        return win;
     }
 
     private static boolean isWin(int[][] moves) {
