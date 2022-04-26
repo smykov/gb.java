@@ -7,6 +7,8 @@ public class Employee {
     private String email;
     private String phone;
     private int salary;
+    private int age;
+
 
     public void print() {
         System.out.println("First Name: " + getFirstName());
@@ -15,6 +17,7 @@ public class Employee {
         System.out.println("Email: " + getEmail());
         System.out.println("Phone number: " + getPhone());
         System.out.println("Salary: " + getSalary());
+        System.out.println("");
     }
 
     public Employee(String firstName, String secondName) {
@@ -104,6 +107,4 @@ public class Employee {
             this.age = age;
         }
     }
-
-    int age;
 }
