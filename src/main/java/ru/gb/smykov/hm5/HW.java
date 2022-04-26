@@ -10,5 +10,11 @@ public class HW {
                 new Employee("Romashkin","Vasiliy", "Junior Programmer","romashkin.v@company_name.com","89113388666",100000,22),
         };
 
+        for (Employee value : employee) {
+            if (value.getAge() > 30) {
+                value.print();
+            }
+        }
+
     }
 }
