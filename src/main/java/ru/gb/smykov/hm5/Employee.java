@@ -8,16 +8,25 @@ public class Employee {
     private String phone;
     private int salary;
 
+    public void print() {
+        System.out.println("First Name: " + getFirstName());
+        System.out.println("Second Name: " + getSecondName());
+        System.out.println("Position: " + getPosition());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Phone number: " + getPhone());
+        System.out.println("Salary: " + getSalary());
+    }
+
     public Employee(String firstName, String secondName) {
-        this(firstName, secondName, null);
+        this(firstName, secondName, "");
     }
 
     public Employee(String firstName, String secondName, String position) {
-        this(firstName, secondName, position, null);
+        this(firstName, secondName, position, "");
     }
 
     public Employee(String firstName, String secondName, String position, String email) {
-        this(firstName, secondName, position, email, null);
+        this(firstName, secondName, position, email, "");
     }
 
     public Employee(String firstName, String secondName, String position, String email, String phone) {
