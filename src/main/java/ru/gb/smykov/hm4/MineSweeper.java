@@ -73,13 +73,29 @@ public class MineSweeper {
     private static boolean move(int[][] board, int[][] moves) {
         Scanner scanner = new Scanner(System.in);
         printBoard(board, moves);
-        int row, line;
+        int row, line = 0;
+        boolean flag = false;
 
         while (true) {
-            System.out.print("Ваш ход (столбец, строка, например А1): ");
+            System.out.printf(ANSI_BLUE + "Столбец [A-%c], строка [1-%d], флаг [*]\nНапример А1 для хода и A1* для постановки флага\n", 'A' + WIDTH - 1, HEIGHT);
+            System.out.print(ANSI_RESET + "Ваш ход: ");
             String move = scanner.nextLine();
             row = move.charAt(0) - 'A';
-            line = Integer.parseInt(move.substring(1));
+
+            String string = move.substring(1);
+            int integerCount = 0;
+            for (int i = 0; i < string.length(); i++) {
+                if (string.charAt(i) >= '1' && string.charAt(i) <= '9') {
+                    integerCount = i + 1;
+                    continue;
+                }
+
+                if (string.charAt(i) == '*') {
+                    flag = true;
+                }
+                break;
+            }
+            line = Integer.parseInt(string.substring(0, integerCount)) - 1;
 
             if (row < WIDTH && row >= 0 && line < HEIGHT && line >= 0) {
                 break;
@@ -87,13 +103,18 @@ public class MineSweeper {
             System.out.println("Ошибка ввода!!!\n Введите координаты внутри игрового поля!");
         }
 
-        if (board[line][row] != MINE) {
-            moves[line][row] = CELL_OPEN;
-            return true;
+        if (board[line][row] == MINE) {
+            return false;
         }
-        return false;
-    }
 
+        if (flag) {
+            moves[line][row] = CELL_FLAG;
+        } else {
+            moves[line][row] = CELL_OPEN;
+        }
+
+        return true;
+    }
     public static void printBoard(int[][] board, int[][] moves) {
         System.out.print("  ");
         for (char i = 'A'; i < 'A' + WIDTH; i++) {
@@ -101,14 +122,14 @@ public class MineSweeper {
         }
         System.out.println();
         for (int i = 0; i < HEIGHT; i++) {
-            System.out.printf("%2d", i);
+            System.out.printf("%2d", i + 1);
             for (int j = 0; j < WIDTH; j++) {
                 if (moves[i][j] == CELL_CLOSED) {
                     System.out.print("[]");
                     continue;
                 }
                 if (moves[i][j] == CELL_FLAG) {
-                    System.out.print("  P");
+                    System.out.print(" P");
                     continue;
                 }
                 final String colorCode = getColorCode(board[i][j]);
