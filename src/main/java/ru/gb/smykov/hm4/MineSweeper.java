@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MineSweeper {
-    public static final int HEIGHT = 10;
+    public static final int HEIGHT = 15;
     public static final int WIDTH = 20;
     public static final int MINES_COUNT = 20;
     public static final int MINE = -1;
@@ -79,7 +79,7 @@ public class MineSweeper {
             System.out.print("Ваш ход (столбец, строка, например А1): ");
             String move = scanner.nextLine();
             row = move.charAt(0) - 'A';
-            line = move.charAt(1) - '0';
+            line = Integer.parseInt(move.substring(1));
 
             if (row < WIDTH && row >= 0 && line < HEIGHT && line >= 0) {
                 break;
