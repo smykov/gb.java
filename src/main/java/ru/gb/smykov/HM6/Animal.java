@@ -43,4 +43,12 @@ public abstract class Animal {
         System.out.println("Age: " + getAge());
         System.out.println("Weight: " + getWeight());
     }
+
+    public void run(int length) {
+        System.out.printf("%s пробежал %dм\n", getName(), length);
+    }
+
+    public void swim(int length) {
+        System.out.printf("%s проплыл %dм\n", getName(), length);
+    }
 }
