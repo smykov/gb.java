@@ -1,13 +1,13 @@
 package ru.gb.smykov.HM6;
 
 public abstract class Animal {
-    protected String name;
-    protected int age;
-    protected double weight;
+   private String name;
+    private int age;
+    private double weight;
 
     public Animal(String name, int age, double weight) {
         this.name = name;
-        this.age = age;
+        this.age = setAge(age);
         this.weight = weight;
     }
 
@@ -23,10 +23,11 @@ public abstract class Animal {
         return age;
     }
 
-    public void setAge(int age) {
+    public int setAge(int age) {
         if (age >= 0 && age <= 50) {
             this.age = age;
         }
+        return age;
     }
 
     public double getWeight() {
