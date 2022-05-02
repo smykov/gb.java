@@ -44,11 +44,21 @@ public abstract class Animal {
         System.out.println("Weight: " + getWeight());
     }
 
-    public void run(int length) {
-        System.out.printf("%s пробежал %dм\n", getName(), length);
+    public boolean run(int length) {
+        if (length > 0){
+            System.out.printf("%s пробежал %dм\n", getName(), length);
+            return true;
+        }
+        System.out.println("Ошибка ввода!!! Дистанция бега должна быть больше нуля!");
+        return false;
     }
 
-    public void swim(int length) {
-        System.out.printf("%s проплыл %dм\n", getName(), length);
+    public boolean swim(int length) {
+        if (length > 0){
+            System.out.printf("%s проплыл %dм\n", getName(), length);
+            return true;
+        }
+        System.out.println("Ошибка ввода!!! Дистанция плавания должна быть больше нуля!");
+        return false;
     }
 }
