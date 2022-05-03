@@ -1,14 +1,20 @@
 package ru.gb.smykov.HM6;
 
 public abstract class Animal {
-   private String name;
+    private String name;
     private int age;
     private double weight;
+    private static int count;
 
     public Animal(String name, int age, double weight) {
         this.name = name;
         this.age = setAge(age);
         this.weight = weight;
+        count++;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     public String getName() {

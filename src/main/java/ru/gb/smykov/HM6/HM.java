@@ -1,7 +1,5 @@
 package ru.gb.smykov.HM6;
 
-import java.util.Random;
-
 public class HM {
     public static void main(String[] args) {
         Animal[] animals = new Animal[]{
@@ -15,5 +13,6 @@ public class HM {
             animal.swim(50);
             System.out.println();
         }
+        System.out.printf("Всего животных: %d", Animal.getCount());
     }
 }
