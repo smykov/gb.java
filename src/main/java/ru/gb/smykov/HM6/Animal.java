@@ -5,11 +5,14 @@ public abstract class Animal {
     private int age;
     private double weight;
     private static int count;
-
-    public Animal(String name, int age, double weight) {
+    private final int runLimit;
+    private final int swimLimit;
+    public Animal(String name, int age, double weight, int runLimit, int swimLimit) {
         this.name = name;
         this.age = setAge(age);
         this.weight = weight;
+        this.runLimit = runLimit;
+        this.swimLimit = swimLimit;
         count++;
     }
 
@@ -50,21 +53,23 @@ public abstract class Animal {
         System.out.println("Weight: " + getWeight());
     }
 
-    public boolean run(int length) {
-        if (length > 0){
-            System.out.printf("%s пробежал %dм\n", getName(), length);
-            return true;
+    public void run(int length) {
+        if (length > 0 && length <= runLimit){
+            System.out.printf("%s пробежал %dм\n", this, length);
+        } else if (length < 0) {
+            System.out.println("Ошибка ввода!!! Дистанция бега должна быть больше нуля!");
+        } else {
+            System.out.printf("Ошибка!!! %s не может пробежать более %dм!\n", this, runLimit);
         }
-        System.out.println("Ошибка ввода!!! Дистанция бега должна быть больше нуля!");
-        return false;
     }
 
-    public boolean swim(int length) {
-        if (length > 0){
-            System.out.printf("%s проплыл %dм\n", getName(), length);
-            return true;
+    public void swim(int length) {
+        if (length > 0 && length <= swimLimit){
+            System.out.printf("%s проплыл %dм\n", this, length);
+        } else if (length < 0) {
+            System.out.println("Ошибка ввода!!! Дистанция плавания должна быть больше нуля!");
+        } else {
+            System.out.printf("Ошибка!!! %s не может проплыть более %dм!", this, swimLimit);
         }
-        System.out.println("Ошибка ввода!!! Дистанция плавания должна быть больше нуля!");
-        return false;
     }
 }

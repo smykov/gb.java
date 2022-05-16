@@ -1,25 +1,22 @@
 package ru.gb.smykov.HM6;
 
 public class Dog extends Animal {
+
+    private static final int RUN_LIMIT = 500;
+    private static final int SWIM_LIMIT = 50;
+    private static int count;
+
     public Dog(String name, int age, double weight) {
-        super(name, age, weight);
+        super(name, age, weight, RUN_LIMIT, SWIM_LIMIT);
+        count++;
     }
 
     @Override
-    public boolean run(int length) {
-        if (length > 500) {
-            System.out.println("Собака не может пробежать больше 500м");
-            return false;
-        }
-        return super.run(length);
+    public String toString() {
+        return "Собака по имени " + getName();
     }
 
-    @Override
-    public boolean swim(int length) {
-        if (length > 10) {
-            System.out.println("Собака не может проплыть больше 10м");
-            return false;
-        }
-        return super.swim(length);
+    public static int getCount() {
+        return count;
     }
 }
