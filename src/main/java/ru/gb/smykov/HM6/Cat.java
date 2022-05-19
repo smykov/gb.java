@@ -6,8 +6,8 @@ public class Cat extends Animal {
     private static final int SWIM_LIMIT = 0;
     private static int count;
 
-    public Cat(String name, int age, double weight) {
-        super(name, age, weight, RUN_LIMIT, SWIM_LIMIT);
+    public Cat(String name, int age, double weight, int appetite) {
+        super(name, age, weight, RUN_LIMIT, SWIM_LIMIT, appetite);
         count++;
     }
 

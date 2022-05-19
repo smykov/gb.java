@@ -7,12 +7,15 @@ public abstract class Animal {
     private static int count;
     private final int runLimit;
     private final int swimLimit;
-    public Animal(String name, int age, double weight, int runLimit, int swimLimit) {
+    private int appetite;
+
+    public Animal(String name, int age, double weight, int runLimit, int swimLimit, int appetite) {
         this.name = name;
         this.age = setAge(age);
         this.weight = weight;
         this.runLimit = runLimit;
         this.swimLimit = swimLimit;
+        this.appetite = appetite;
         count++;
     }
 
@@ -54,7 +57,7 @@ public abstract class Animal {
     }
 
     public void run(int length) {
-        if (length > 0 && length <= runLimit){
+        if (length > 0 && length <= runLimit) {
             System.out.printf("%s пробежал %dм\n", this, length);
         } else if (length < 0) {
             System.out.println("Ошибка ввода!!! Дистанция бега должна быть больше нуля!");
@@ -64,12 +67,24 @@ public abstract class Animal {
     }
 
     public void swim(int length) {
-        if (length > 0 && length <= swimLimit){
+        if (length > 0 && length <= swimLimit) {
             System.out.printf("%s проплыл %dм\n", this, length);
         } else if (length < 0) {
             System.out.println("Ошибка ввода!!! Дистанция плавания должна быть больше нуля!");
         } else {
             System.out.printf("Ошибка!!! %s не может проплыть более %dм!", this, swimLimit);
         }
+    }
+
+    public void setAppetite(int appetite) {
+        this.appetite = appetite;
+    }
+
+    public int getAppetite() {
+        return appetite;
+    }
+
+    public void eat(Plate plate) {
+        plate.decreaseFood(appetite);
     }
 }
