@@ -19,5 +19,9 @@ public class Plate {
         return true;
     }
 
+    public void addFood(int extraFood) {
+        food += extraFood;
+    }
+
 
 }

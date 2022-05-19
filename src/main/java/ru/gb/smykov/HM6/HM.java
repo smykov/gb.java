@@ -20,6 +20,8 @@ public class HM {
             animal.swim(random.nextInt(50));
             animal.eat(plate);
             animal.print();
+            plate.addFood(2);
+            plate.info();
             System.out.println();
         }
         System.out.printf("Всего животных: %d\n", Animal.getCount());
