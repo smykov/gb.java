@@ -11,11 +11,12 @@ public class Plate {
         System.out.println("plate: " + food);
     }
 
-    public void decreaseFood(int n) {
+    public boolean decreaseFood(int n) {
         if (food < n) {
-            n = food;
+            return false;
         }
         food -= n;
+        return true;
     }
 
 

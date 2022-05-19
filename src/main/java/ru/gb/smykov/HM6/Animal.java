@@ -9,6 +9,8 @@ public abstract class Animal {
     private final int swimLimit;
     private int appetite;
 
+    private boolean isFull;
+
     public Animal(String name, int age, double weight, int runLimit, int swimLimit, int appetite) {
         this.name = name;
         this.age = setAge(age);
@@ -16,6 +18,7 @@ public abstract class Animal {
         this.runLimit = runLimit;
         this.swimLimit = swimLimit;
         this.appetite = appetite;
+        isFull = false;
         count++;
     }
 
@@ -50,10 +53,15 @@ public abstract class Animal {
         this.weight = weight;
     }
 
+    public boolean isFull() {
+        return isFull;
+    }
+
     public void print() {
         System.out.println("Name: " + getName());
         System.out.println("Age: " + getAge());
         System.out.println("Weight: " + getWeight());
+        System.out.println("Full: " + (isFull() ? "сыт" : "голоден"));
     }
 
     public void run(int length) {
@@ -85,6 +93,8 @@ public abstract class Animal {
     }
 
     public void eat(Plate plate) {
-        plate.decreaseFood(appetite);
+        if (plate.decreaseFood(appetite)) {
+            this.isFull = true;
+        }
     }
 }
