@@ -13,7 +13,7 @@ public class Calculator extends JFrame {
 
         setTitle("Calculator");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(300, 300, 400, 400);
+        setBounds(300, 300, 230, 220);
         setLayout(new BorderLayout());
 
         final JLabel display = new JLabel("0");
@@ -26,7 +26,7 @@ public class Calculator extends JFrame {
         numberPanel.setLayout(numberLayout);
 
         final JPanel buttonPanel = new JPanel();
-        final GridLayout buttonLayout = new GridLayout(2, 3, 10, 10);
+        final GridLayout buttonLayout = new GridLayout(6, 1, 10, 5);
         buttonPanel.setLayout(buttonLayout);
 
         final ActionListener numberListener = new ActionListener() {
@@ -42,6 +42,13 @@ public class Calculator extends JFrame {
 
                 if ("0".equals(displayText) && !".".equals(text)) {
                     displayText = "";
+                }
+
+                if ("+/-".equals(text)) {
+                    if (!displayText.contains("-") && !"0".equals(displayText)) {
+                        display.setText(String.valueOf(Double.parseDouble(displayText) * -1));
+                    }
+                    return;
                 }
 
                 displayText += text;
@@ -85,7 +92,8 @@ public class Calculator extends JFrame {
             }
         };
 
-        for (int i = 0; i < 10; i++) {
+        int[] array = new int[]{7, 8, 9, 4, 5, 6, 1, 2, 3};
+        for (int i : array) {
             JButton button = new JButton(String.valueOf(i));
             button.addActionListener(numberListener);
             numberPanel.add(button);
@@ -93,9 +101,14 @@ public class Calculator extends JFrame {
 
         final JButton pointButton = new JButton(".");
         pointButton.addActionListener(numberListener);
-        final JButton negativeButton = new JButton("+/-");
-
         numberPanel.add(pointButton);
+
+        final JButton zeroButton = new JButton("0");
+        zeroButton.addActionListener(numberListener);
+        numberPanel.add(zeroButton);
+
+        final JButton negativeButton = new JButton("+/-");
+        negativeButton.addActionListener(numberListener);
         numberPanel.add(negativeButton);
 
         for (char c :
@@ -105,8 +118,8 @@ public class Calculator extends JFrame {
             buttonPanel.add(button);
         }
 
-        add(numberPanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
+        add(numberPanel, BorderLayout.WEST);
+        add(buttonPanel, BorderLayout.EAST);
         setVisible(true);
     }
 
