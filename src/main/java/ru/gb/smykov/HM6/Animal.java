@@ -93,8 +93,6 @@ public abstract class Animal {
     }
 
     public void eat(Plate plate) {
-        if (plate.decreaseFood(appetite)) {
-            this.isFull = true;
-        }
+        this.isFull = plate.decreaseFood(appetite);
     }
 }

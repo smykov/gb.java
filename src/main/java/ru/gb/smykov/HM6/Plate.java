@@ -21,7 +21,11 @@ public class Plate {
     }
 
     public void addFood(int extraFood) {
-        food += extraFood;
+        if (extraFood > 0 && extraFood <= Integer.MAX_VALUE){
+            food += extraFood;
+        } else {
+            System.out.println("Ошибка!!! Невозможно добавить отрицательное количесвтво еды!!!");
+        }
     }
 
 
