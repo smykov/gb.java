@@ -12,7 +12,7 @@ public class HM {
         };
 
         Plate plate = new Plate(5);
-        plate.info();
+        System.out.println(plate);
 
         final Random random = new Random();
         for (Animal animal : animals) {
@@ -21,14 +21,13 @@ public class HM {
             animal.eat(plate);
             animal.print();
             plate.addFood(2);
-            plate.info();
-            System.out.println();
+            System.out.println(plate);
         }
         System.out.printf("Всего животных: %d\n", Animal.getCount());
         System.out.println("Cat.getCount() = " + Cat.getCount());
         System.out.println("Dog.getCount() = " + Dog.getCount());
 
-        plate.info();
+        System.out.println(plate);
 
     }
 }

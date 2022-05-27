@@ -7,8 +7,9 @@ public class Plate {
         this.food = food;
     }
 
-    public void info() {
-        System.out.println("plate: " + food);
+    @Override
+    public String toString() {
+        return "Plate: "+ food;
     }
 
     public boolean decreaseFood(int n) {
